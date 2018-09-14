@@ -17,3 +17,8 @@ void Sortable::render(sf::RenderWindow& window, const unsigned position)
 	m_shape.setPosition(position, window.getSize().y);
 	window.draw(m_shape);
 }
+
+void Sortable::highlight(const sf::Color& color)
+{
+	m_shape.setFillColor(color);
+}

@@ -3,14 +3,13 @@
 
 #include "ui.hpp"
 #include "sort.hpp"
-#include <thread>
 
 class Visualizer
 {
 public:
 	Visualizer(const unsigned windowWidth, const unsigned windowHeight);
 	void setMargins(const unsigned top, const unsigned between);
-	void start(const unsigned count, std::unique_ptr<Sort> algorithm);
+	void start(const unsigned count, std::unique_ptr<Sort> algorithm, const unsigned sleepTime);
 
 private:
 	unsigned m_windowWidth;
