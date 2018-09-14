@@ -9,6 +9,11 @@ Visualizer::Visualizer(const unsigned windowWidth, const unsigned windowHeight)
 
 void Visualizer::start()
 {
+	if (!m_ui.setDefaultFont("assets/consola.ttf"))
+	{
+		return;
+	}
+
 	// todo: create an array of (shuffled) sortable objects
 
 	mainLoop();
@@ -44,10 +49,17 @@ void Visualizer::update()
 	{
 		// todo: start the thread if not running
 	}
+
+	// sample UI values
+	m_ui.setComparisons(10);
+	m_ui.setSwaps(30);
 }
 
 void Visualizer::render()
 {
 	m_window.clear();
+
+	m_ui.render(m_window);
+
 	m_window.display();
 }
