@@ -7,6 +7,8 @@ Visualizer::Visualizer(const unsigned windowWidth, const unsigned windowHeight)
 	m_marginTop = 0;
 	m_marginBetween = 0;
 	m_window.create(sf::VideoMode(m_windowWidth, m_windowHeight), "Visualization of sorting algorithms", sf::Style::Close);
+
+	m_sortingAlgorithm = nullptr;
 }
 
 void Visualizer::setMargins(const unsigned top, const unsigned between)
@@ -15,12 +17,14 @@ void Visualizer::setMargins(const unsigned top, const unsigned between)
 	m_marginBetween = between;
 }
 
-void Visualizer::start(const unsigned count)
+void Visualizer::start(const unsigned count, std::unique_ptr<Sort> algorithm)
 {
 	if (!m_ui.setDefaultFont("assets/consola.ttf"))
 	{
 		return;
 	}
+
+	m_sortingAlgorithm = std::move(algorithm);
 
 	m_array.clear();
 	for (unsigned i = 1; i <= count; i++)

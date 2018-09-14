@@ -2,15 +2,14 @@
 #define VISUALIZER_HPP
 
 #include "ui.hpp"
-#include "sortable.hpp"
-#include <vector>
+#include "sort.hpp"
 
 class Visualizer
 {
 public:
 	Visualizer(const unsigned windowWidth, const unsigned windowHeight);
 	void setMargins(const unsigned top, const unsigned between);
-	void start(const unsigned count);
+	void start(const unsigned count, std::unique_ptr<Sort> algorithm);
 
 private:
 	unsigned m_windowWidth;
@@ -22,6 +21,7 @@ private:
 	UI m_ui;
 
 	std::vector<Sortable> m_array;
+	std::unique_ptr<Sort> m_sortingAlgorithm;
 
 	void mainLoop();
 	void handleEvents();
