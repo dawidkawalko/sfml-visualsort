@@ -1,7 +1,7 @@
 #ifndef VISUALIZER_HPP
 #define VISUALIZER_HPP
 
-#include "ui.hpp"
+#include <SFML/Graphics.hpp>
 
 class Visualizer
 {
@@ -13,7 +13,6 @@ private:
 	unsigned m_windowWidth;
 	unsigned m_windowHeight;
 	sf::RenderWindow m_window;
-	UI m_ui;
 
 	void mainLoop();
 	void handleEvents();
