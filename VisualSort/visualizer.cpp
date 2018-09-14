@@ -68,7 +68,10 @@ void Visualizer::update()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
-		// todo: start the thread if not running
+		if (!m_sortingAlgorithm->isRunning())
+		{
+			std::thread(&Visualizer::startSort, this).detach();
+		}
 	}
 }
 
@@ -84,4 +87,9 @@ void Visualizer::render()
 	}
 
 	m_window.display();
+}
+
+void Visualizer::startSort()
+{
+	m_sortingAlgorithm->start(m_array);
 }

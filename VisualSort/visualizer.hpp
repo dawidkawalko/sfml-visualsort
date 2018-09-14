@@ -3,6 +3,7 @@
 
 #include "ui.hpp"
 #include "sort.hpp"
+#include <thread>
 
 class Visualizer
 {
@@ -27,6 +28,7 @@ private:
 	void handleEvents();
 	void update();
 	void render();
+	void startSort();
 };
 
 #endif // VISUALIZER_HPP
