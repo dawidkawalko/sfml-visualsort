@@ -11,7 +11,15 @@ UI::UI()
 
 bool UI::setDefaultFont(const std::string path)
 {
-	return m_fontDefault.loadFromFile(path);
+	if (!m_fontDefault.loadFromFile(path))
+	{
+		return false;
+	}
+
+	m_textComparisons.setFont(m_fontDefault);
+	m_textSwaps.setFont(m_fontDefault);
+
+	return true;
 }
 
 void UI::setComparisons(const unsigned comparisons)
