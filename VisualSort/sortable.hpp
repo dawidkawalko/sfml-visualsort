@@ -1,5 +1,5 @@
-#ifndef DRAWABLE_HPP
-#define DRAWABLE_HPP
+#ifndef SORTABLE_HPP
+#define SORTABLE_HPP
 
 #include <SFML/Graphics.hpp>
 
@@ -21,4 +21,4 @@ private:
 	sf::RectangleShape m_shape;
 };
 
-#endif // DRAWABLE_HPP
+#endif // SORTABLE_HPP
