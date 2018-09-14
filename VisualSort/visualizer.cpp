@@ -79,6 +79,9 @@ void Visualizer::update()
 			std::thread(&Visualizer::startSort, this).detach();
 		}
 	}
+
+	m_ui.setComparisons(m_sortingAlgorithm->getComparisons());
+	m_ui.setSwaps(m_sortingAlgorithm->getSwaps());
 }
 
 void Visualizer::render()

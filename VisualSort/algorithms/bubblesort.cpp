@@ -2,7 +2,7 @@
 
 void BubbleSort::start(std::vector<Sortable>& array)
 {
-	m_isRunning = true;
+	Sort::start(array);
 
 	for (unsigned i = 0; i < array.size(); i++)
 	{
@@ -17,7 +17,7 @@ void BubbleSort::start(std::vector<Sortable>& array)
 			array[j].highlight();
 			array[j + 1].highlight();
 
-			if (array[j] > array[j + 1])
+			if (greater(array[j], array[j + 1]))
 			{
 				swap(array[j], array[j + 1]);
 				hasSwapped = true;
