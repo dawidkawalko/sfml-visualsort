@@ -17,7 +17,7 @@ void Visualizer::setMargins(const unsigned top, const unsigned between)
 	m_marginBetween = between;
 }
 
-void Visualizer::start(const unsigned count, std::unique_ptr<Sort> algorithm)
+void Visualizer::start(const unsigned count, std::unique_ptr<Sort> algorithm, const unsigned sleepTime)
 {
 	if (!m_ui.setDefaultFont("assets/consola.ttf"))
 	{
@@ -25,6 +25,12 @@ void Visualizer::start(const unsigned count, std::unique_ptr<Sort> algorithm)
 	}
 
 	m_sortingAlgorithm = std::move(algorithm);
+	if (m_sortingAlgorithm == nullptr)
+	{
+		return;
+	}
+
+	m_sortingAlgorithm->setSleepTime(sleepTime);
 
 	m_array.clear();
 	for (unsigned i = 1; i <= count; i++)

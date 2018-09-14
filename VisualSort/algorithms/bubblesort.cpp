@@ -14,6 +14,8 @@ void BubbleSort::start(std::vector<Sortable>& array)
 				swap(array[j], array[j + 1]);
 				hasSwapped = true;
 			}
+
+			std::this_thread::sleep_for(std::chrono::milliseconds(m_sleepTime));
 		}
 
 		if (!hasSwapped)
