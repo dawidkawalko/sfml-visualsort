@@ -14,6 +14,7 @@ public:
 
 private:
 	sf::Font m_fontDefault;
+	sf::Text m_textInstructions;
 	sf::Text m_textComparisons;
 	sf::Text m_textSwaps;
 };

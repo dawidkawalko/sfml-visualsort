@@ -80,6 +80,14 @@ void Visualizer::update()
 		}
 	}
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+	{
+		if (!m_sortingAlgorithm->isRunning())
+		{
+			std::random_shuffle(m_array.begin(), m_array.end());
+		}
+	}
+
 	m_ui.setComparisons(m_sortingAlgorithm->getComparisons());
 	m_ui.setSwaps(m_sortingAlgorithm->getSwaps());
 }

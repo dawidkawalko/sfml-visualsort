@@ -2,11 +2,15 @@
 
 UI::UI()
 {
+	m_textInstructions.setCharacterSize(20);
 	m_textComparisons.setCharacterSize(20);
 	m_textSwaps.setCharacterSize(20);
 
-	m_textComparisons.setPosition(10, 10);
-	m_textSwaps.setPosition(10, 30);
+	m_textInstructions.setPosition(10, 10);
+	m_textComparisons.setPosition(10, 40);
+	m_textSwaps.setPosition(10, 60);	
+
+	m_textInstructions.setString("Press [space] to sort, or [r] to re-shuffle the array.");
 }
 
 bool UI::setDefaultFont(const std::string path)
@@ -16,6 +20,7 @@ bool UI::setDefaultFont(const std::string path)
 		return false;
 	}
 
+	m_textInstructions.setFont(m_fontDefault);
 	m_textComparisons.setFont(m_fontDefault);
 	m_textSwaps.setFont(m_fontDefault);
 
@@ -34,6 +39,7 @@ void UI::setSwaps(const unsigned swaps)
 
 void UI::render(sf::RenderWindow& window) const
 {
+	window.draw(m_textInstructions);
 	window.draw(m_textComparisons);
 	window.draw(m_textSwaps);
 }
