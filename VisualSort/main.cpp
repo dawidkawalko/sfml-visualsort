@@ -11,8 +11,10 @@ int main(int argc, char** argv)
 	const unsigned MARGIN_TOP = 200;
 	const unsigned MARGIN_BETWEEN = 2;
 	const unsigned NUMBERS_COUNT = 100;
+	const unsigned ANIMATION_TIME_MS = 1;
 
 	Visualizer vis(WINDOW_WIDTH, WINDOW_HEIGHT);
-	vis.setMargins(MARGIN_BETWEEN, 2);
-	vis.start(NUMBERS_COUNT, std::make_unique<BubbleSort>(), 10);
+	vis.setMargins(MARGIN_TOP, MARGIN_BETWEEN);
+
+	vis.start(NUMBERS_COUNT, std::make_unique<BubbleSort>(), ANIMATION_TIME_MS);
 }
