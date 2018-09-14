@@ -1,0 +1,17 @@
+
+*.obj
+*.idb
+*.pdb
+*.log
+*.tlog
+*.vcxproj
+*.filters
+*.user
+*.sln
+*.exe
+*.ilk
+*.opendb
+*.db
+.vs/VisualSort/v15/.suo
+*.dll
+*.ipch
