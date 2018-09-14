@@ -8,7 +8,7 @@ class Sort
 {
 public:
 	// every sub-class has to implement this method
-	virtual void start(std::vector<Sortable>& array) = 0;
+	virtual void start(std::vector<Sortable>& array) const = 0;
 };
 
 #endif // SORT_HPP
