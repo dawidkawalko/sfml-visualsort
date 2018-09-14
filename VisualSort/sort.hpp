@@ -15,6 +15,7 @@ public:
 
 protected:
 	bool m_isRunning;
+	void swap(Sortable& a, Sortable& b);
 };
 
 #endif // SORT_HPP

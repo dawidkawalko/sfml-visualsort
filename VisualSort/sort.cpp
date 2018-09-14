@@ -9,3 +9,10 @@ bool Sort::isRunning() const
 {
 	return m_isRunning;
 }
+
+void Sort::swap(Sortable& a, Sortable& b)
+{
+	Sortable tmp = a;
+	a = b;
+	b = tmp;
+}
