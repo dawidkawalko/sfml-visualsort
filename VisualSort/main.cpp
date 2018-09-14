@@ -1,4 +1,5 @@
 #include "visualizer.hpp"
+#include "algorithms/bubblesort.hpp"
 #include <ctime>
 
 int main(int argc, char** argv)
@@ -13,5 +14,5 @@ int main(int argc, char** argv)
 
 	Visualizer vis(WINDOW_WIDTH, WINDOW_HEIGHT);
 	vis.setMargins(MARGIN_BETWEEN, 2);
-	vis.start(NUMBERS_COUNT);
+	vis.start(NUMBERS_COUNT, std::make_unique<BubbleSort>());
 }
