@@ -3,7 +3,6 @@
 Sortable::Sortable(const unsigned value)
 {
 	m_value = value;
-	m_shape.setFillColor(sf::Color::White);
 }
 
 void Sortable::setSize(const float width, const float height)
