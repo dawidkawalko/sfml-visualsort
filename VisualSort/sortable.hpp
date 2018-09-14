@@ -9,6 +9,7 @@ public:
 	Sortable(const unsigned value);
 	void setSize(const float width, const float height);
 	void render(sf::RenderWindow& window, const unsigned position);
+	void highlight(const sf::Color& color = sf::Color::White);
 
 	bool operator >(const Sortable& other)
 	{
