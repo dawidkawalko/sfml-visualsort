@@ -4,7 +4,6 @@
 
 int main(int argc, char** argv)
 {
-	//git test
 	srand(unsigned(time(0))); // for std::random_shuffle()
 
 	const unsigned WINDOW_WIDTH = 1200;
