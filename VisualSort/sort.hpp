@@ -12,7 +12,8 @@ public:
 	Sort();
 
 	// every sub-class has to implement this method
-	virtual void start(std::vector<Sortable>& array) = 0;
+	void start(std::vector<Sortable>& array);
+	virtual void sort(std::vector<Sortable>& array) = 0;
 
 	bool isRunning() const;
 	void setSleepTime(const unsigned sleepTime);
