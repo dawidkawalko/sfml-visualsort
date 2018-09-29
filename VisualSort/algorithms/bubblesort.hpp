@@ -6,7 +6,7 @@
 class BubbleSort : public Sort
 {
 public:
-	void start(std::vector<Sortable>& array) override;
+	void sort(std::vector<Sortable>& array) override;
 };
 
 #endif // BUBBLESORT_HPP

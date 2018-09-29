@@ -1,9 +1,7 @@
 #include "bubblesort.hpp"
 
-void BubbleSort::start(std::vector<Sortable>& array)
+void BubbleSort::sort(std::vector<Sortable>& array)
 {
-	Sort::start(array);
-
 	for (unsigned i = 0; i < array.size(); i++)
 	{
 		bool hasSwapped = false;
@@ -29,6 +27,4 @@ void BubbleSort::start(std::vector<Sortable>& array)
 			break;
 		}
 	}
-
-	m_isRunning = false;
 }
