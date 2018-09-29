@@ -12,6 +12,6 @@
 *.ilk
 *.opendb
 *.db
-.vs/VisualSort/v15/.suo
+*.suo
 *.dll
 *.ipch
