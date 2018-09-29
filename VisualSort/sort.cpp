@@ -13,6 +13,10 @@ void Sort::start(std::vector<Sortable>& array)
 	m_isRunning = true;
 	m_comparisons = 0;
 	m_swaps = 0;
+
+	sort(array);
+
+	m_isRunning = false;
 }
 
 bool Sort::isRunning() const
