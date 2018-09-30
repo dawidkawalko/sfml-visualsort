@@ -10,9 +10,8 @@ class Sort
 {
 public:
 	Sort();
-
-	// every sub-class has to implement this method
 	void start(std::vector<Sortable>& array);
+	// every sub-class has to implement this method:
 	virtual void sort(std::vector<Sortable>& array) = 0;
 
 	bool isRunning() const;
