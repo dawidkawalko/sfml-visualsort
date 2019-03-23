@@ -16,5 +16,5 @@ int main(int argc, char** argv)
 	Visualizer visualizer(WINDOW_WIDTH, WINDOW_HEIGHT);
 	visualizer.setMargins(MARGIN_TOP, MARGIN_BETWEEN);
 
-	visualizer.start(NUMBERS_COUNT, std::make_unique<BubbleSort>(), ANIMATION_TIME_MS);
+	visualizer.start(NUMBERS_COUNT, ANIMATION_TIME_MS);
 }

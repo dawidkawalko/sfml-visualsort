@@ -1,5 +1,10 @@
 #include "selectionsort.hpp"
 
+SelectionSort::SelectionSort(const unsigned sleepTime)
+{
+	m_sleepTime = sleepTime;
+}
+
 void SelectionSort::sort(std::vector<Sortable>& array)
 {
 	for (unsigned i = 0; i < array.size(); ++i)

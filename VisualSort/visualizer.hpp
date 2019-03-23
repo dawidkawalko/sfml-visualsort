@@ -33,13 +33,14 @@ public:
 	* @param algorithm Algorithm to be used for sorting
 	* @param sleepTime Time between each step of the algorithm (practically meaning animation delay)
 	*/
-	void start(const unsigned count, std::unique_ptr<Sort> algorithm, const unsigned sleepTime);
+	void start(const unsigned count, const unsigned sleepTime);
 
 private:
 	unsigned m_windowWidth;
 	unsigned m_windowHeight;
 	unsigned m_marginTop;
 	unsigned m_marginBetween;
+	unsigned m_sleepTime;
 
 	sf::RenderWindow m_window;
 	UI m_ui;

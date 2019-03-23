@@ -1,5 +1,10 @@
 #include "mergesort.hpp"
 
+MergeSort::MergeSort(const unsigned sleepTime)
+{
+	m_sleepTime = sleepTime;
+}
+
 void MergeSort::sort(std::vector<Sortable>& array)
 {
 	mergeSort(array, 0, array.size() - 1);

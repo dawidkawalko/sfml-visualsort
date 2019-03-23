@@ -10,6 +10,13 @@ class MergeSort : public Sort
 {
 public:
 	/**
+	* Constructor, sets waiting time between algorithm steps
+	*
+	* @param sleepTime Time between each algorithm step in milliseconds
+	*/
+	MergeSort(const unsigned sleepTime);
+
+	/**
 	* Overrides the Sort::sort() method
 	*/
 	void sort(std::vector<Sortable>& array) override;

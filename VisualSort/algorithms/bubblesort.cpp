@@ -1,5 +1,10 @@
 #include "bubblesort.hpp"
 
+BubbleSort::BubbleSort(const unsigned sleepTime)
+{
+	m_sleepTime = sleepTime;
+}
+
 void BubbleSort::sort(std::vector<Sortable>& array)
 {
 	for (unsigned i = 0; i < array.size(); i++)

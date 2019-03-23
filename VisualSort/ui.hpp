@@ -47,6 +47,7 @@ private:
 	sf::Text m_textInstructions;
 	sf::Text m_textComparisons;
 	sf::Text m_textSwaps;
+	sf::Text m_availableAlgorithms;
 };
 
 #endif // UI_HPP

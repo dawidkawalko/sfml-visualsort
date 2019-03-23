@@ -1,4 +1,7 @@
 #include "visualizer.hpp"
+#include "algorithms/bubblesort.hpp"
+#include "algorithms/selectionsort.hpp"
+#include "algorithms/mergesort.hpp"
 
 Visualizer::Visualizer(const unsigned windowWidth, const unsigned windowHeight)
 {
@@ -6,6 +9,7 @@ Visualizer::Visualizer(const unsigned windowWidth, const unsigned windowHeight)
 	m_windowHeight = windowHeight;
 	m_marginTop = 0;
 	m_marginBetween = 0;
+	m_sleepTime = 0;
 	m_window.create(sf::VideoMode(m_windowWidth, m_windowHeight), "Visualization of sorting algorithms", sf::Style::Close);
 
 	m_sortingAlgorithm = nullptr;
@@ -17,20 +21,15 @@ void Visualizer::setMargins(const unsigned top, const unsigned between)
 	m_marginBetween = between;
 }
 
-void Visualizer::start(const unsigned count, std::unique_ptr<Sort> algorithm, const unsigned sleepTime)
+void Visualizer::start(const unsigned count, const unsigned sleepTime)
 {
 	if (!m_ui.setDefaultFont("assets/consola.ttf"))
 	{
 		return;
 	}
 
-	m_sortingAlgorithm = std::move(algorithm);
-	if (m_sortingAlgorithm == nullptr)
-	{
-		return;
-	}
-
-	m_sortingAlgorithm->setSleepTime(sleepTime);
+	m_sleepTime = sleepTime;
+	m_sortingAlgorithm = std::make_unique<BubbleSort>(m_sleepTime);
 
 	m_array.clear();
 	for (unsigned i = 1; i <= count; i++)
@@ -85,6 +84,30 @@ void Visualizer::update()
 		if (!m_sortingAlgorithm->isRunning())
 		{
 			std::random_shuffle(m_array.begin(), m_array.end());
+		}
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::B))
+	{
+		if (!m_sortingAlgorithm->isRunning())
+		{
+			m_sortingAlgorithm = std::make_unique<BubbleSort>(m_sleepTime);
+		}
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	{
+		if (!m_sortingAlgorithm->isRunning())
+		{
+			m_sortingAlgorithm = std::make_unique<SelectionSort>(m_sleepTime);
+		}
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::M))
+	{
+		if (!m_sortingAlgorithm->isRunning())
+		{
+			m_sortingAlgorithm = std::make_unique<MergeSort>(m_sleepTime);
 		}
 	}
 
