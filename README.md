@@ -11,3 +11,6 @@ Visualization of sorting algorithms using C++ and SFML
 
 
 Instructions: Press `space` to start sorting or `R` to reset (re-shuffle) the values.
+
+Note: To build the project you will need SFML, which you can get from here:
+https://www.sfml-dev.org/
