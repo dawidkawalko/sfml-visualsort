@@ -8,6 +8,8 @@ Visualization of sorting algorithms using C++ and SFML
 - Very straightforward to create and implement new algorithms.
 - Available algorithms:
   - Bubble sort
+  - Selection sort
+  - Merge sort
 
 
 Instructions: Press `space` to start sorting or `R` to reset (re-shuffle) the values.
