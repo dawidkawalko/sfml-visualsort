@@ -49,6 +49,14 @@ public:
 		return m_value > other.m_value;
 	}
 
+	/**
+	* Checks if the internal value is smaller then that of a different Sortable
+	*/
+	bool operator <(const Sortable& other)
+	{
+		return m_value < other.m_value;
+	}
+
 private:
 	unsigned m_value;
 	sf::RectangleShape m_shape;
