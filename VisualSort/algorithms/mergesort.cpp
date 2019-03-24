@@ -49,7 +49,7 @@ void MergeSort::merge(std::vector<Sortable>& array, const unsigned left, const u
 		array[i].highlight();
 		array[j].highlight();
 
-		if (smaller(array[i], array[j]))
+		if (compare(array[i], array[j]) <= 0)
 		{
 			tmp[k] = array[i++];
 		}

@@ -44,16 +44,10 @@ unsigned Sort::getSwaps() const
 	return m_swaps;
 }
 
-bool Sort::greater(Sortable& a, Sortable& b)
+int Sort::compare(Sortable& a, Sortable& b)
 {
 	++m_comparisons;
-	return a > b;
-}
-
-bool Sort::smaller(Sortable& a, Sortable& b)
-{
-	++m_comparisons;
-	return a < b;
+	return (a < b ? -1 : (a > b ? 1 : 0));
 }
 
 void Sort::swap(Sortable& a, Sortable& b)

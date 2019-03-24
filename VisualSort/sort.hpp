@@ -72,8 +72,7 @@ protected:
 	unsigned m_swaps;
 
 	virtual void sort(std::vector<Sortable>& array) = 0;
-	bool greater(Sortable& a, Sortable& b);
-	bool smaller(Sortable& a, Sortable& b);
+	int compare(Sortable& a, Sortable& b);
 	void swap(Sortable& a, Sortable& b);
 };
 

@@ -21,7 +21,7 @@ void BubbleSort::sort(std::vector<Sortable>& array)
 			array[j].highlight();
 			array[j + 1].highlight();
 
-			if (greater(array[j], array[j + 1]))
+			if (compare(array[j], array[j + 1]) == 1)
 			{
 				swap(array[j], array[j + 1]);
 				hasSwapped = true;

@@ -21,7 +21,7 @@ void SelectionSort::sort(std::vector<Sortable>& array)
 			array[i].highlight();
 			array[j].highlight();
 
-			if (smaller(array[j], array[smallestIndex]))
+			if (compare(array[j], array[smallestIndex]) <= 0)
 			{
 				smallestIndex = j;
 			}
