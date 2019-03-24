@@ -3,6 +3,7 @@
 MergeSort::MergeSort(const unsigned sleepTime)
 {
 	m_sleepTime = sleepTime;
+	m_name = "Merge sort";
 }
 
 void MergeSort::sort(std::vector<Sortable>& array)

@@ -42,12 +42,21 @@ public:
 	*/
 	void render(sf::RenderWindow& window) const;
 
+	/**
+	* Sets the displayed algorithm name
+	*
+	* @param name Algorithm name
+	*/
+	void setCurrentAlgorithm(const std::string& name);
+
 private:
 	sf::Font m_fontDefault;
 	sf::Text m_textInstructions;
 	sf::Text m_textComparisons;
 	sf::Text m_textSwaps;
 	sf::Text m_availableAlgorithms;
+	sf::Text m_activeAlgorithmLabel;
+	sf::Text m_activeAlgorithm;
 };
 
 #endif // UI_HPP

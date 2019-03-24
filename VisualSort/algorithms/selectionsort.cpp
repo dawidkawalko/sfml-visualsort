@@ -3,6 +3,7 @@
 SelectionSort::SelectionSort(const unsigned sleepTime)
 {
 	m_sleepTime = sleepTime;
+	m_name = "Selection sort";
 }
 
 void SelectionSort::sort(std::vector<Sortable>& array)

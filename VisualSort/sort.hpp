@@ -30,6 +30,13 @@ public:
 	void start(std::vector<Sortable>& array);
 
 	/**
+	* Returns the name of this algorithm
+	*
+	* @return std::string
+	*/
+	std::string getName() const;
+
+	/**
 	* Checks whether the algorithm is still running
 	*
 	* @return bool
@@ -58,6 +65,7 @@ public:
 	unsigned getSwaps() const;
 
 protected:
+	std::string m_name;
 	bool m_isRunning;
 	unsigned m_sleepTime;
 	unsigned m_comparisons;

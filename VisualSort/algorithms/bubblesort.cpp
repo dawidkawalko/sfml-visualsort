@@ -3,6 +3,7 @@
 BubbleSort::BubbleSort(const unsigned sleepTime)
 {
 	m_sleepTime = sleepTime;
+	m_name = "Bubble sort";
 }
 
 void BubbleSort::sort(std::vector<Sortable>& array)

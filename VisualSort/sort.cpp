@@ -19,6 +19,11 @@ void Sort::start(std::vector<Sortable>& array)
 	m_isRunning = false;
 }
 
+std::string Sort::getName() const
+{
+	return m_name;
+}
+
 bool Sort::isRunning() const
 {
 	return m_isRunning;

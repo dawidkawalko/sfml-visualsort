@@ -29,7 +29,9 @@ void Visualizer::start(const unsigned count, const unsigned sleepTime)
 	}
 
 	m_sleepTime = sleepTime;
+
 	m_sortingAlgorithm = std::make_unique<BubbleSort>(m_sleepTime);
+	m_ui.setCurrentAlgorithm(m_sortingAlgorithm->getName());
 
 	m_array.clear();
 	for (unsigned i = 1; i <= count; i++)
@@ -92,6 +94,7 @@ void Visualizer::update()
 		if (!m_sortingAlgorithm->isRunning())
 		{
 			m_sortingAlgorithm = std::make_unique<BubbleSort>(m_sleepTime);
+			m_ui.setCurrentAlgorithm(m_sortingAlgorithm->getName());
 		}
 	}
 
@@ -100,6 +103,7 @@ void Visualizer::update()
 		if (!m_sortingAlgorithm->isRunning())
 		{
 			m_sortingAlgorithm = std::make_unique<SelectionSort>(m_sleepTime);
+			m_ui.setCurrentAlgorithm(m_sortingAlgorithm->getName());
 		}
 	}
 
@@ -108,6 +112,7 @@ void Visualizer::update()
 		if (!m_sortingAlgorithm->isRunning())
 		{
 			m_sortingAlgorithm = std::make_unique<MergeSort>(m_sleepTime);
+			m_ui.setCurrentAlgorithm(m_sortingAlgorithm->getName());
 		}
 	}
 
