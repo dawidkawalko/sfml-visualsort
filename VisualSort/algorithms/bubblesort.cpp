@@ -13,6 +13,11 @@ void BubbleSort::sort(std::vector<Sortable>& array)
 		bool hasSwapped = false;
 		for (unsigned j = 0; j < array.size() - i - 1; j++)
 		{
+			if (!m_isRunning)
+			{
+				return;
+			}
+
 			array[j].highlight(sf::Color::Magenta);
 			array[j + 1].highlight(sf::Color::Magenta);
 

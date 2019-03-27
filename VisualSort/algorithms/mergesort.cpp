@@ -14,7 +14,7 @@ void MergeSort::sort(std::vector<Sortable>& array)
 void MergeSort::mergeSort(std::vector<Sortable>& array, const unsigned left, const unsigned right)
 {
 	unsigned size = array.size();
-	if (left >= right)
+	if (left >= right || !m_isRunning)
 	{
 		return;
 	}
@@ -29,6 +29,11 @@ void MergeSort::mergeSort(std::vector<Sortable>& array, const unsigned left, con
 
 void MergeSort::merge(std::vector<Sortable>& array, const unsigned left, const unsigned middle, const unsigned right)
 {
+	if (!m_isRunning)
+	{
+		return;
+	}
+
 	std::vector<Sortable> tmp;
 	for (int i = left; i <= right; ++i)
 	{
