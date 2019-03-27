@@ -18,7 +18,7 @@ UI::UI()
 
 	m_activeAlgorithm.setFillColor(sf::Color::Green);
 
-	m_textInstructions.setString("Press [space] to sort, or [r] to re-shuffle the array.");
+	m_textInstructions.setString("Press [space] to sort, [x] to stop sorting, [r] to re-shuffle the array.");
 	m_availableAlgorithms.setString("Choose an algorithm: [b] Bubble sort, [s] Selection sort, [m] Merge sort");
 	m_activeAlgorithmLabel.setString("Currently selected algorithm: ");
 	m_activeAlgorithm.setString("Test");

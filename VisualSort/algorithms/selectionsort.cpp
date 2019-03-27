@@ -13,6 +13,11 @@ void SelectionSort::sort(std::vector<Sortable>& array)
 		int smallestIndex = i;
 		for (unsigned j = i + 1; j < array.size(); ++j)
 		{
+			if (!m_isRunning)
+			{
+				return;
+			}
+
 			array[i].highlight(sf::Color::Magenta);
 			array[j].highlight(sf::Color::Magenta);
 

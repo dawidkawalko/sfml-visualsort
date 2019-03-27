@@ -81,6 +81,14 @@ void Visualizer::update()
 		}
 	}
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
+	{
+		if (m_sortingAlgorithm->isRunning())
+		{
+			m_sortingAlgorithm->stop();
+		}
+	}
+
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
 	{
 		if (!m_sortingAlgorithm->isRunning())

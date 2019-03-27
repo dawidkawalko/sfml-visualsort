@@ -19,6 +19,13 @@ void Sort::start(std::vector<Sortable>& array)
 	m_isRunning = false;
 }
 
+void Sort::stop()
+{
+	m_isRunning = false;
+	m_comparisons = 0;
+	m_swaps = 0;
+}
+
 std::string Sort::getName() const
 {
 	return m_name;

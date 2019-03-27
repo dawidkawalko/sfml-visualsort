@@ -30,6 +30,11 @@ public:
 	void start(std::vector<Sortable>& array);
 
 	/**
+	* Stops the algorithm
+	*/
+	void stop();
+
+	/**
 	* Returns the name of this algorithm
 	*
 	* @return std::string
