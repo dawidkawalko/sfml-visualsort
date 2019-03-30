@@ -67,36 +67,44 @@ void Visualizer::handleEvents()
 			case sf::Event::Closed:
 				m_window.close();
 				break;
+
+			case sf::Event::KeyPressed:
+			{
+				switch (event.key.code)
+				{
+					case sf::Keyboard::Space:
+					{
+						if (!m_sortingAlgorithm->isRunning())
+						{
+							std::thread(&Visualizer::startSort, this).detach();
+						}
+						else
+						{
+							m_sortingAlgorithm->stop();
+						}
+
+						break;
+					}
+
+					case sf::Keyboard::R:
+					{
+						if (!m_sortingAlgorithm->isRunning())
+						{
+							std::random_shuffle(m_array.begin(), m_array.end());
+						}
+
+						break;
+					}
+				}
+
+				break;
+			}
 		}
 	}
 }
 
 void Visualizer::update()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-	{
-		if (!m_sortingAlgorithm->isRunning())
-		{
-			std::thread(&Visualizer::startSort, this).detach();
-		}
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
-	{
-		if (m_sortingAlgorithm->isRunning())
-		{
-			m_sortingAlgorithm->stop();
-		}
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
-	{
-		if (!m_sortingAlgorithm->isRunning())
-		{
-			std::random_shuffle(m_array.begin(), m_array.end());
-		}
-	}
-
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::B))
 	{
 		if (!m_sortingAlgorithm->isRunning())
