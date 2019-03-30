@@ -34,10 +34,12 @@ void Visualizer::start(const unsigned count, const unsigned sleepTime)
 	m_ui.setCurrentAlgorithm(m_sortingAlgorithm->getName());
 
 	m_array.clear();
+
+	float sortableWidth = m_windowWidth / float(count) - m_marginBetween;
 	for (unsigned i = 1; i <= count; i++)
 	{
 		Sortable sortable(i);
-		sortable.setSize(m_windowWidth/float(count) - m_marginBetween, (i/float(count)) * (m_windowHeight - m_marginTop));
+		sortable.setSize(sortableWidth, (i/float(count)) * (m_windowHeight - m_marginTop));
 
 		m_array.push_back(sortable);
 	}
@@ -67,36 +69,44 @@ void Visualizer::handleEvents()
 			case sf::Event::Closed:
 				m_window.close();
 				break;
+
+			case sf::Event::KeyPressed:
+			{
+				switch (event.key.code)
+				{
+					case sf::Keyboard::Space:
+					{
+						if (!m_sortingAlgorithm->isRunning())
+						{
+							std::thread(&Visualizer::startSort, this).detach();
+						}
+						else
+						{
+							m_sortingAlgorithm->stop();
+						}
+
+						break;
+					}
+
+					case sf::Keyboard::R:
+					{
+						if (!m_sortingAlgorithm->isRunning())
+						{
+							std::random_shuffle(m_array.begin(), m_array.end());
+						}
+
+						break;
+					}
+				}
+
+				break;
+			}
 		}
 	}
 }
 
 void Visualizer::update()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-	{
-		if (!m_sortingAlgorithm->isRunning())
-		{
-			std::thread(&Visualizer::startSort, this).detach();
-		}
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
-	{
-		if (m_sortingAlgorithm->isRunning())
-		{
-			m_sortingAlgorithm->stop();
-		}
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
-	{
-		if (!m_sortingAlgorithm->isRunning())
-		{
-			std::random_shuffle(m_array.begin(), m_array.end());
-		}
-	}
-
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::B))
 	{
 		if (!m_sortingAlgorithm->isRunning())
@@ -133,10 +143,10 @@ void Visualizer::render()
 	m_window.clear();
 	m_ui.render(m_window);
 
+	float sortableWidth = m_windowWidth / (float)m_array.size();
 	for (unsigned i = 0; i < m_array.size(); i++)
 	{
-		unsigned size = m_windowWidth / (float)m_array.size();
-		m_array[i].render(m_window, (i+1)*size - m_marginBetween);
+		m_array[i].render(m_window, (i+1)*sortableWidth - m_marginBetween);
 	}
 
 	m_window.display();

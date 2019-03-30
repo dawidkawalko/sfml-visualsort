@@ -16,3 +16,4 @@
 *.dll
 *.ipch
 VisualSort/.vs/VisualSort/v15/.suo
+main.cpp
