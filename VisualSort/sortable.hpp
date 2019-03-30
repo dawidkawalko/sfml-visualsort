@@ -35,11 +35,16 @@ public:
 	void render(sf::RenderWindow& window, const float position);
 
 	/**
+	* Resets the color of this Sortable
+	*/
+	void highlight();
+
+	/**
 	* Sets the color of this Sortable
 	*
 	* @param color SFML color value
 	*/
-	void highlight(const sf::Color& color = sf::Color::White);
+	void highlight(const sf::Color& color);
 
 	/**
 	* Checks if the internal value is greater then that of a different Sortable
@@ -60,6 +65,7 @@ public:
 private:
 	unsigned m_value;
 	sf::RectangleShape m_shape;
+	sf::Color m_defaultColor;
 };
 
 #endif // SORTABLE_HPP
