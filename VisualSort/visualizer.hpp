@@ -3,6 +3,7 @@
 
 #include "ui.hpp"
 #include "sort.hpp"
+#include "config/config.hpp"
 
 /**
 * Main class
@@ -13,27 +14,14 @@ public:
 	/**
 	* Constructor, sets initial values and creates the window
 	*
-	* @param windowWidth Width of the window in pixels
-	* @param windowHeight Height of the window in pixels
+	* @param configPath Path to the config file
 	*/
-	Visualizer(const unsigned windowWidth, const unsigned windowHeight);
-
-	/**
-	* Sets the margins, i.e. empty space around Sortables
-	*
-	* @param top Top margin, space between the top of the window and the highest Sortable
-	* @param between Space between each Sortable
-	*/
-	void setMargins(const unsigned top, const unsigned between);
+	Visualizer(const std::string& configPath);
 
 	/**
 	* Starts the program
-	*
-	* @param count Number of Sortables to sort
-	* @param algorithm Algorithm to be used for sorting
-	* @param sleepTime Time between each step of the algorithm (practically meaning animation delay)
 	*/
-	void start(const unsigned count, const unsigned sleepTime);
+	void start();
 
 private:
 	unsigned m_windowWidth;
@@ -41,6 +29,7 @@ private:
 	unsigned m_marginTop;
 	unsigned m_marginBetween;
 	unsigned m_sleepTime;
+	Config m_config;
 
 	sf::RenderWindow m_window;
 	UI m_ui;

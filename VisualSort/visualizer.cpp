@@ -3,37 +3,35 @@
 #include "algorithms/selectionsort.hpp"
 #include "algorithms/mergesort.hpp"
 
-Visualizer::Visualizer(const unsigned windowWidth, const unsigned windowHeight)
+Visualizer::Visualizer(const std::string& configPath)
 {
-	m_windowWidth = windowWidth;
-	m_windowHeight = windowHeight;
-	m_marginTop = 0;
-	m_marginBetween = 0;
-	m_sleepTime = 0;
+	m_config.setPath(configPath);
+	m_config.parse();
+
+	m_windowWidth = m_config.get("WINDOW_WIDTH");
+	m_windowHeight = m_config.get("WINDOW_HEIGHT");
+	m_marginTop = m_config.get("MARGIN_TOP");
+	m_marginBetween = m_config.get("MARGIN_BETWEEN");
+	m_sleepTime = m_config.get("ANIMATION_TIME_MS");
+
 	m_window.create(sf::VideoMode(m_windowWidth, m_windowHeight), "Visualization of sorting algorithms", sf::Style::Close);
 
 	m_sortingAlgorithm = nullptr;
 }
 
-void Visualizer::setMargins(const unsigned top, const unsigned between)
-{
-	m_marginTop = top;
-	m_marginBetween = between;
-}
-
-void Visualizer::start(const unsigned count, const unsigned sleepTime)
+void Visualizer::start()
 {
 	if (!m_ui.setDefaultFont("assets/consola.ttf"))
 	{
 		return;
 	}
 
-	m_sleepTime = sleepTime;
-
 	m_sortingAlgorithm = std::make_unique<BubbleSort>(m_sleepTime);
 	m_ui.setCurrentAlgorithm(m_sortingAlgorithm->getName());
 
 	m_array.clear();
+
+	int count = m_config.get("NUMBERS_COUNT");
 
 	float sortableWidth = m_windowWidth / float(count) - m_marginBetween;
 	for (unsigned i = 1; i <= count; i++)
