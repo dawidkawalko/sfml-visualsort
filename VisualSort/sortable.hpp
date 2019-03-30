@@ -32,7 +32,7 @@ public:
 	* @param window Target window on which to draw
 	* @param position Position relative to the top-left corner of the screen
 	*/
-	void render(sf::RenderWindow& window, const unsigned position);
+	void render(sf::RenderWindow& window, const float position);
 
 	/**
 	* Sets the color of this Sortable

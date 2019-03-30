@@ -11,7 +11,7 @@ void Sortable::setSize(const float width, const float height)
 	m_shape.setOrigin(sf::Vector2f(width, height));
 }
 
-void Sortable::render(sf::RenderWindow& window, const unsigned position)
+void Sortable::render(sf::RenderWindow& window, const float position)
 {
 	m_shape.setPosition(position, window.getSize().y);
 	window.draw(m_shape);
